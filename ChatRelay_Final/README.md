@@ -114,6 +114,22 @@ go test -v ./test/bot_test.go
 
 ---
 
+** 
+Slack App Manifest (YAML) – for quick deployment/config via Slack’s manifest UI.
+
+OAuth 2.0 Flow (Go server) – handles Add to Slack authorization securely with start and callback routes.
+
+🔧 Required Environment Variables:
+env
+Copy
+Edit
+SLACK_CLIENT_ID=your_client_id
+SLACK_CLIENT_SECRET=your_client_secret
+OAUTH_REDIRECT_URI=https://yourdomain.com/slack/oauth/callback
+
+---
+
+
 ## 🚀 Slack App Directory Publishing Checklist
 
 * [x] Fully working Slack app with OAuth 2.0 flow
