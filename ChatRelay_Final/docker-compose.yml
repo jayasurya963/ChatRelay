@@ -1,0 +1,17 @@
+# docker-compose for ChatRelay and mock backend
+version: '3.8'
+services:
+  chatrelay:
+    build: .
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    depends_on:
+      - mock-backend
+  mock-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.mock
+    ports:
+      - "8081:8081"

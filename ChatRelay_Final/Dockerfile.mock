@@ -1,0 +1,6 @@
+# Dockerfile for mock backend
+FROM golang:1.21
+WORKDIR /app
+COPY . .
+RUN go build -o mock_backend ./internal/server/mock_backend.go
+CMD ["./mock_backend"]
