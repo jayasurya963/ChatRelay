@@ -21,6 +21,33 @@ ChatRelay is a production-grade Slack bot written in Go that listens to messages
 ## 📁 Project Structure
 
 ```bash
+ChatRelay/
+├── cmd/
+│   ├── bot/
+│   │   └── main.go                  # Entry point for the Slack bot
+│   └── mock_backend/
+│       └── main.go                 # Simulated chat backend with SSE and full response
+├── internal/
+│   ├── bot/
+│   │   ├── bot.go              # Slack message handler
+│   ├── client/
+│   │   └── client.go               # Chat backend client (SSE & full)
+│   └── telemetry_otel/
+│       └── otel.go                 # OpenTelemetry setup (tracing/logging)
+├── config/
+│   └── config.go                   # Env var loading and validation
+├── tests/
+│   ├── bot_test.go                # Unit tests for bot handler
+│   ├── client_test.go             # Unit tests for chat backend client
+├── Dockerfile                     # Containerization for the bot
+├── Dockerfile.mock               # Containerization for mock backend
+├── docker-compose.yml            # Orchestration for bot + mock + optional OTEL collector
+├── .env. example                 # Template environment config
+├── .gitignore                     # Ignore build artifacts, secrets, etc.
+├── LICENSE                        # Open-source license (e.g., MIT)
+├── README.md                      # Full documentation & setup
+├── changelog.md                   # Version history and changes
+└── slack-app-manifest.yml         # Slack app definition (YAML)
 
 ```
 
