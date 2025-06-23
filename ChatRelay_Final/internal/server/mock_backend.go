@@ -1,1 +1,16 @@
 // Mock chat backend server for testing
+# ./mock-backend/Dockerfile
+FROM golang:1.21-alpine
+
+WORKDIR /mock
+
+COPY go.mod go.sum ./
+RUN go mod download
+
+COPY . .
+
+RUN go build -o mock-backend ./cmd/mock
+
+EXPOSE 5000
+
+CMD ["./mock-backend"]
